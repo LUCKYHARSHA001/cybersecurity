@@ -1,0 +1,54 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>USB Physical Security Project Info</title>
+        <style>
+            body { font-family: 'Inter', sans-serif; margin: 20px; background-color: #f0f2f5; color: #333; line-height: 1.6; }
+            h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+            h2 { color: #34495e; margin-top: 25px; }
+            ul { list-style-type: disc; margin-left: 20px; }
+            li { margin-bottom: 5px; }
+            .container { max-width: 800px; margin: auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+            .note { background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 10px; margin-top: 20px; border-radius: 4px; }
+            .note strong { color: #2196F3; }
+        </style>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>USB Physical Security Application</h1>
+            <p>This application provides a basic layer of physical security for your computer's USB ports, primarily focusing on USB mass storage devices.</p>
+
+            <h2>Key Features:</h2>
+            <ul>
+                <li><strong>USB Port Control:</strong> Enable or disable USB mass storage functionality on your Windows system.</li>
+                <li><strong>Password Protection:</strong> Critical actions (enable/disable) require a one-time password (OTP) sent to your registered email address.</li>
+                <li><strong>Activity Logging:</strong> All enable/disable actions are logged with timestamps and success status.</li>
+                <li><strong>Real-time Status:</strong> View the current status of USB mass storage (enabled/disabled).</li>
+                <li><strong>Intruder Detection:</b> In case of an incorrect password attempt, the application can record a short video using your webcam.</li>
+            </ul>
+
+            <h2>How it Works:</h2>
+            <p>The application interacts with the Windows Registry to modify the 'Start' value of the <code>USBSTOR</code> service. This service controls the Plug and Play functionality for USB mass storage devices.</p>
+            <ul>
+                <li>Setting 'Start' to <code>4</code> effectively disables the service, preventing new USB drives from being recognized.</li>
+                <li>Setting 'Start' to <code>3</code> re-enables the service.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Important Note:</strong>
+                <p>This application primarily affects <strong>newly connected USB mass storage devices</strong> (like pendrives, external hard drives). It does not typically disable existing connected devices, USB keyboards, mice, or webcams. For a more comprehensive disable of all USB functionality, advanced system tools (like Microsoft's DevCon utility) would be required, which is beyond the scope of this self-contained Python application.</p>
+                <p><strong>Administrator privileges are required</strong> to run this application and modify USB settings.</p>
+                <p>For email functionality, if you are using Gmail, you will need to generate an "App password" instead of using your regular Gmail password. Refer to Google's documentation on "App passwords" for more details.</p>
+            </div>
+
+            <h2>Developed By:</h2>
+            <p>Your Name / Project Team</p>
+            <p>Date: June 2025</p>
+        </div>
+    </body>
+    </html>
+    
